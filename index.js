@@ -5,8 +5,6 @@
 
 'use strict';
 
-// var $ = require('jquery');
-
 var Widget = require('nd-widget'),
   Template = require('nd-template');
 
@@ -25,10 +23,10 @@ function makeFloating(pageList, pageCount, currentPage) {
   var n5 = Math.min(n7 - 1, currentPage + countIn);
   var useMiddle = (n5 >= n4);
 
-  var n3 = parseInt((n2 + n4) / 2, 10);
+  // var n3 = parseInt((n2 + n4) / 2, 10);
   var useN3 = (useMiddle && ((n4 - n2) > 1));
 
-  var n6 = parseInt((n5 + n7) / 2, 10);
+  // var n6 = parseInt((n5 + n7) / 2, 10);
   var useN6 = (useMiddle && ((n7 - n5) > 1));
 
   var i;
