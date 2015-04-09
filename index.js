@@ -118,12 +118,12 @@ var Pagination = Widget.extend({
     Pagination.superclass.initAttrs.apply(this, arguments);
 
     var pageList = [],
-      limit = this.get('limit'),
-      pageCount = Math.ceil(this.get('count') / limit),
+      $limit = this.get('$limit'),
+      pageCount = Math.ceil(this.get('count') / $limit),
       currentPage;
 
     if (pageCount) {
-      currentPage = Math.floor(this.get('offset') / limit) + 1;
+      currentPage = Math.floor(this.get('$offset') / $limit) + 1;
 
       pageList.push({
         page: '-1',
