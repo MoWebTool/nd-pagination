@@ -44,14 +44,12 @@ function makeFloating(pageList, pageCount, currentPage) {
       cls: 'hellip'
     });
   }
-  if (n4 > n2) {
-    for (i = n4; i <= n5; i++) {
-      pageList.push({
-        page: i,
-        text: i,
-        cls: i === currentPage ? 'current' : ''
-      });
-    }
+  for (i = n4; i <= n5; i++) {
+    pageList.push({
+      page: i,
+      text: i,
+      cls: i === currentPage ? 'current' : ''
+    });
   }
   if (useN6) {
     pageList.push({
@@ -59,14 +57,13 @@ function makeFloating(pageList, pageCount, currentPage) {
       cls: 'hellip'
     });
   }
-  if (n7 > n5 && n7 > n2) {
-    for (i = n7; i <= n8; i++) {
-      pageList.push({
-        page: i,
-        text: i,
-        cls: i === currentPage ? 'current' : ''
-      });
-    }
+  n7 = Math.max(n7, (useMiddle ? n5 : n2) + 1);
+  for (i = n7; i <= n8; i++) {
+    pageList.push({
+      page: i,
+      text: i,
+      cls: i === currentPage ? 'current' : ''
+    });
   }
 }
 
