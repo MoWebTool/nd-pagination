@@ -1,6 +1,6 @@
 # nd-pagination
 
-[![spm version](http://spmjs.io/badge/nd-pagination)](http://spmjs.io/package/nd-pagination)
+[![spm version](http://spm.crossjs.com/badge/nd-pagination)](http://spm.crossjs.com/package/nd-pagination)
 
 > 分页
 

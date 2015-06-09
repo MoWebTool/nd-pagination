@@ -1,12 +1,12 @@
 /**
- * @module: nd-pagination
- * @author: crossjs <liwenfu@crossjs.com> - 2015-03-16 13:28:48
+ * @module Pagination
+ * @author crossjs <liwenfu@crossjs.com>
  */
 
 'use strict';
 
-var Widget = require('nd-widget'),
-  Template = require('nd-template');
+var Widget = require('nd-widget');
+var Template = require('nd-template');
 
 // https://github.com/shadowhand/pagination/blob/3.1/master/views/pagination/floating.php
 function makeFloating(pageList, pageCount, currentPage) {
@@ -75,13 +75,14 @@ var Pagination = Widget.extend({
   attrs: {
     classPrefix: 'ui-pagination',
     template: require('./src/pagination.handlebars'),
-    // basic | floating | simple
+    // none| basic | floating | simple
     theme: 'simple'
   },
 
   events: {
     'click [data-role="page-link"]': function(e) {
       var pageText = e.currentTarget.getAttribute('data-page'),
+        theme = this.get('theme'),
         currentPage = this.get('currentPage'),
         pageCount = this.get('pageCount'),
         toPage;
@@ -94,7 +95,7 @@ var Pagination = Widget.extend({
         toPage = +pageText;
       }
 
-      if (toPage >= 1 && toPage !== currentPage && toPage <= pageCount) {
+      if (toPage >= 1 && toPage !== currentPage && (toPage <= pageCount || theme === 'none')) {
         this.trigger('goto', toPage);
       }
     },
@@ -115,13 +116,26 @@ var Pagination = Widget.extend({
     Pagination.superclass.initAttrs.apply(this, arguments);
 
     var pageList = [],
+      theme = this.get('theme'),
       $limit = this.get('$limit'),
       pageCount = Math.ceil(this.get('count') / $limit),
-      currentPage;
-
-    if (pageCount) {
       currentPage = Math.floor(this.get('$offset') / $limit) + 1;
 
+    if (theme === 'none') {
+      pageList.push({
+        page: '-1',
+        text: '< 上一页',
+        cls: 'prev',
+        disabled: currentPage === 1
+      });
+
+      pageList.push({
+        page: '+1',
+        text: '下一页 >',
+        cls: 'next',
+        disabled: this.get('isLastPage')
+      });
+    } else if (pageCount) {
       pageList.push({
         page: '-1',
         text: '<',
@@ -129,7 +143,7 @@ var Pagination = Widget.extend({
         disabled: currentPage === 1
       });
 
-      switch (this.get('theme')) {
+      switch (theme) {
         case 'simple':
           pageList.push({
             page: currentPage,
@@ -163,7 +177,8 @@ var Pagination = Widget.extend({
     this.set('pageCount', pageCount);
 
     this.set('model', {
-      pageList: pageList
+      pageList: pageList,
+      showJump: !!pageCount
     });
   }
 
