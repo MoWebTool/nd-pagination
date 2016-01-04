@@ -1,4 +1,7 @@
 <div class="{{classPrefix}}">
+  {{#if total}}
+    <span class="total">共 <strong>{{total}}</strong> 条</span>
+  {{/if}}
   {{#if pageList}}
   {{#each pageList}}
     <a href="javascript:;" class="page-link{{#if cls}} {{cls}}{{/if}}{{#if active}} active{{/if}}" data-role="page-link" data-page="{{page}}"{{#if disabled}} disabled{{/if}}>{{text}}</a>
