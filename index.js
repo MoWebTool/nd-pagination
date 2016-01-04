@@ -115,11 +115,12 @@ var Pagination = Widget.extend({
   initAttrs: function() {
     Pagination.superclass.initAttrs.apply(this, arguments);
 
-    var pageList = [],
-      theme = this.get('theme'),
-      $limit = this.get('$limit'),
-      pageCount = Math.ceil(this.get('count') / $limit),
-      currentPage = Math.floor(this.get('$offset') / $limit) + 1;
+    var pageList = [];
+    var theme = this.get('theme');
+    var $limit = this.get('$limit');
+    var total = this.get('count');
+    var pageCount = Math.ceil(total / $limit);
+    var currentPage = Math.floor(this.get('$offset') / $limit) + 1;
 
     if (theme === 'none') {
       pageList.push({
@@ -177,6 +178,7 @@ var Pagination = Widget.extend({
     this.set('pageCount', pageCount);
 
     this.set('model', {
+      total: total,
       pageList: pageList,
       showJump: !!pageCount
     });
