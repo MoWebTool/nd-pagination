@@ -5,6 +5,7 @@
 
 'use strict';
 
+var __ = require('nd-i18n');
 var Widget = require('nd-widget');
 var Template = require('nd-template');
 
@@ -125,14 +126,14 @@ var Pagination = Widget.extend({
     if (theme === 'none') {
       pageList.push({
         page: '-1',
-        text: '< 上一页',
+        text: __('< 上一页'),
         cls: 'prev',
         disabled: currentPage === 1
       });
 
       pageList.push({
         page: '+1',
-        text: '下一页 >',
+        text: __('下一页 >'),
         cls: 'next',
         disabled: this.get('isLastPage')
       });

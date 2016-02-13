@@ -1,13 +1,15 @@
 # nd-pagination
 
-[![spm version](http://spm.crossjs.com/badge/nd-pagination)](http://spm.crossjs.com/package/nd-pagination)
+[![Travis](https://img.shields.io/travis/ndfront/nd-pagination.svg?style=flat-square)](https://github.com/ndfront/nd-pagination)
+[![Coveralls](https://img.shields.io/coveralls/ndfront/nd-pagination.svg?style=flat-square)](https://github.com/ndfront/nd-pagination)
+[![NPM version](https://img.shields.io/npm/v/nd-pagination.svg?style=flat-square)](https://npmjs.org/package/nd-pagination)
 
 > 分页
 
 ## 安装
 
 ```bash
-$ spm install nd-pagination --save
+$ npm install nd-pagination --save
 ```
 
 ## 使用

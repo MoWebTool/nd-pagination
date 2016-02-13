@@ -1,6 +1,6 @@
 <div class="{{classPrefix}}">
   {{#if total}}
-    <span class="total">共 <strong>{{total}}</strong> 条</span>
+    <span class="total">{{__ '共'}} <strong>{{total}}</strong> {{__ '条'}}</span>
   {{/if}}
   {{#if pageList}}
   {{#each pageList}}
@@ -8,7 +8,7 @@
   {{/each}}
   <form>
     <input type="text" size="2" />
-    <button>跳转</button>
+    <button>{{__ '跳转'}}</button>
   </form>
   {{/if}}
 </div>
