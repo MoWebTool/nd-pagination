@@ -24,8 +24,8 @@
   "dependencies": {
     "handlebars": "^4.0.5",
     "nd-i18n": "^3.0.0",
-    "nd-template": "^3.0.0",
-    "nd-widget": "^3.0.0"
+    "nd-template": "^3.0.1",
+    "nd-widget": "^3.0.1"
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
