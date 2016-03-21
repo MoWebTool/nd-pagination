@@ -6,9 +6,11 @@
   {{#each pageList}}
     <a href="javascript:;" class="page-link{{#if cls}} {{cls}}{{/if}}{{#if active}} active{{/if}}" data-role="page-link" data-page="{{page}}"{{#if disabled}} disabled{{/if}}>{{text}}</a>
   {{/each}}
-  <form>
-    <input type="text" size="2" />
-    <button>{{__ '跳转'}}</button>
-  </form>
+    {{#if showJump}}
+    <form>
+      <input type="text" size="2" />
+      <button>{{__ '跳转'}}</button>
+    </form>
+    {{/if}}
   {{/if}}
 </div>

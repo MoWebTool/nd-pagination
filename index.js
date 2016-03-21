@@ -82,6 +82,10 @@ var Pagination = Widget.extend({
 
   events: {
     'click [data-role="page-link"]': function(e) {
+      //元素被禁用时阻止跳转
+      if (e.currentTarget.getAttribute('disabled') === '') {
+        return;
+      }
       var pageText = e.currentTarget.getAttribute('data-page'),
         theme = this.get('theme'),
         currentPage = this.get('currentPage'),
