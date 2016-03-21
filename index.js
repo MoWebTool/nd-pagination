@@ -128,11 +128,18 @@ var Pagination = Widget.extend({
     var currentPage = Math.floor(this.get('$offset') / $limit) + 1;
 
     if (theme === 'none') {
+      var isFristPage = currentPage === 1;
       pageList.push({
         page: '-1',
         text: __('< 上一页'),
         cls: 'prev',
-        disabled: currentPage === 1
+        disabled: isFristPage
+      });
+
+      pageList.push({
+        text:'|',
+        cls: 'hellip',
+        disabled: isFristPage && this.get('isLastPage')
       });
 
       pageList.push({
